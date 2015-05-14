@@ -12,37 +12,19 @@ class HumanPlayer < Player
   def place_ships(lengths_array)
     lengths_array.each do |l|
       new_ship = Ship.new(l)
-    end
-      puts "#{@name}, where would you like to place a ship of length 2?"
+      puts "#{@name}, where would you like to place a ship of length #{l}?"
       y = grid.y_of(get_user_input[0])
       x = grid.x_of(get_user_input[/d/].to_s)
-      # puts "Across or Down?"
-      if get_user_input = "Across"
-        orientation = true
+      puts "Across or Down?"
+      if get_user_input == "Across"
+        orientation == true
       else
-        orientation = false
+        orientation == false
       end
       if grid.place_ship(new_ship, x, y, orientation)
         @ships << new_ship
       end
-
-      # puts "#{@name}, where would you like to place a ship of length 5?"
-      get_user_input
-      # puts "Across or Down?"
-      if get_user_input = "Across"
-        true
-      else
-        false
-      end
-
-      lengths_array.each do |l|
-        new_ship = Ship.new(l)
-      end
     end
-
-
-
-
   end
 
 
